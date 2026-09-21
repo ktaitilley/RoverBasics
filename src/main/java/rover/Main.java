@@ -1,5 +1,5 @@
 package rover;
-
+import java.util.Scanner;
 /**
  * CSCI-121 · Week 5 · RoverBasics
  *
@@ -34,9 +34,9 @@ public class Main {
 
         // ── MONDAY ──────────────────────────────────────────────────────────
         step1Variables();
-        // step2Battery();
-        // step3Strings();
-        // step4Input();
+        step2Battery();
+        step3Strings();
+        step4Input();
 
         // ── TUESDAY ─────────────────────────────────────────────────────────
         // step5FirstClass();
@@ -59,7 +59,20 @@ public class Main {
         System.out.println("--- Step 1: what a rover is made of ---");
 
         // ▼ README · Step 1. Type it below this line.
+        String name= "Sparky";
+        int wheels = 6;
+        double topSpeed= 0.75;
+        boolean headlightsOn = false;
+        char missionCode='B';
 
+        System.out.println("name         = " + name);
+        System.out.println("wheels       = " + wheels);
+        System.out.println("topSpeed     = " + topSpeed);
+        System.out.println("headlightsOn = " + headlightsOn);
+        System.out.println("missionCode  = " + missionCode);
+
+        System.out.println("missionCode + 1       = " + (missionCode + 1));
+        System.out.println("(char)(missionCode+1) = " + (char) (missionCode + 1));
     }
 
 
@@ -72,7 +85,27 @@ public class Main {
         System.out.println("--- Step 2: how full is the battery? ---");
 
         // ▼ README · Step 2.
+        int capacity = 300;
+        int charge   = 150;
 
+        int wrong = charge / capacity * 100;
+        int right = charge * 100 / capacity;
+        double exact = (double) charge * 100 / capacity;
+
+        System.out.println("capacity = " + capacity + ", charge = " + charge);
+        System.out.println("wrong = " + wrong + "%");
+        System.out.println("right = " + right + "%");
+        System.out.println("exact = " + exact + "%");
+
+        int smallCapacity = 3;
+        int smallCharge   = 2;
+
+        int twoThirds = smallCharge * 100 / smallCapacity;
+        double twoThirdsExact = (double) smallCharge * 100 / smallCapacity;
+
+        System.out.println("2 of 3 as an int    = " + twoThirds + "%");
+        System.out.println("2 of 3 as a double  = " + twoThirdsExact + "%");
+        System.out.println("Java did not round. It chopped.");
     }
 
 
@@ -85,7 +118,28 @@ public class Main {
         System.out.println("--- Step 3: strings ---");
 
         // ▼ README · Step 3.
+        String label = "Rover Sparky";
 
+        System.out.println("label            = " + label);
+        System.out.println("label.length()   = " + label.length());
+        System.out.println("label.charAt(6)  = " + label.charAt(6));
+        System.out.println("label.substring(6) = " + label.substring(6));
+
+        label.toUpperCase();
+
+        System.out.println("after toUpperCase(), label = " + label);
+
+        String shouty = label.toUpperCase();
+
+        System.out.println("shouty = " + shouty);
+
+        String typedByHand = new String("Rover Sparky");
+
+        boolean sameObject = label == typedByHand;
+        boolean sameText = label.equals(typedByHand);
+
+        System.out.println("label == typedByHand      -> " + sameObject);
+        System.out.println("label.equals(typedByHand) -> " + sameText);
     }
 
 
@@ -100,7 +154,15 @@ public class Main {
         System.out.println("--- Step 4: ask the operator ---");
 
         // ▼ README · Step 4.
+        Scanner in = new Scanner(System.in);
 
+        System.out.print("Name your rover: ");
+        String roverName = in.nextLine();
+
+        System.out.print("How many wheels? ");
+        int wheelCount = in.nextInt();
+
+        System.out.println(roverName + " reporting for duty on " + wheelCount + " wheels.");
     }
 
 
